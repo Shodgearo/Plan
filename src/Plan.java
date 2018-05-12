@@ -1,5 +1,7 @@
-/**
- * Created by Александр on 12.05.2018.
- */
+// Главный класс для програмы-планировщика
+
 public class Plan {
+    public static void main(String[] args) {
+
+    }
 }
