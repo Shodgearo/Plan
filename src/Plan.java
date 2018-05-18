@@ -3,6 +3,8 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Plan extends JFrame {
     public static void main(String[] args) {
@@ -30,6 +32,7 @@ public class Plan extends JFrame {
 
     private void initButton() {
         bAdd = new JButton("Добавить");
+        bAdd.addActionListener(new ButtonListener());
     }
 
     private void adding() {
@@ -54,5 +57,12 @@ public class Plan extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    private class ButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            bAdd.setVisible(false);
+        }
     }
 }
