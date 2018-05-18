@@ -13,22 +13,29 @@ public class Plan extends JFrame {
     private final static int WIDTH_FRAME = 600;
     private final static int HEIGHT_FRAME = 450;
     // Ширина панелей
-    private final static int WIDTH_FRAME_TASKS = WIDTH_FRAME - 180;
-    private final static int WIDTH_FRAME_ADDTASKS = WIDTH_FRAME - WIDTH_FRAME_TASKS;
+    private final static int WIDTH_FRAME_ADDTASKS = WIDTH_FRAME - 180;
+    private final static int WIDTH_FRAME_TASKS = WIDTH_FRAME - WIDTH_FRAME_ADDTASKS;
 
     //Поля
     private Panel4Plan tasks;
     private Panel4Plan addTasks;
+    private JButton bAdd;
 
     private Plan() {
         initPanel();
+        initButton();
         adding();
         initFrame();
     }
 
+    private void initButton() {
+        bAdd = new JButton("Добавить");
+    }
+
     private void adding() {
-        add(tasks, BorderLayout.WEST);
-        add(addTasks, BorderLayout.EAST);
+        add(tasks, BorderLayout.EAST);
+        add(addTasks, BorderLayout.WEST);
+        addTasks.add(bAdd);
     }
 
     private void initPanel() {
