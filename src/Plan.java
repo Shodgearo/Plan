@@ -21,7 +21,7 @@ public class Plan extends JFrame {
     //Поля
     private Panel4Plan tasks;
     private Panel4Plan addTasks;
-    private JButton bAdd;
+    private Button4Add bAdd;
 
     private Plan() {
         initPanel();
@@ -31,7 +31,7 @@ public class Plan extends JFrame {
     }
 
     private void initButton() {
-        bAdd = new JButton("Добавить");
+        bAdd = new Button4Add("Добавить", 90, 20);
         bAdd.addActionListener(new ButtonListener());
     }
 
@@ -42,10 +42,10 @@ public class Plan extends JFrame {
     }
 
     private void initPanel() {
-        tasks = new Panel4Plan(this, WIDTH_FRAME_TASKS, HEIGHT_FRAME);
+        tasks = new Panel4Plan(WIDTH_FRAME_TASKS, HEIGHT_FRAME);
         tasks.setBackground(Color.BLACK);
 
-        addTasks = new Panel4Plan(this, WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
+        addTasks = new Panel4Plan(WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
         addTasks.setBackground(Color.RED);
     }
 
