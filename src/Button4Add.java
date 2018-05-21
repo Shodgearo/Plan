@@ -1,4 +1,12 @@
-package PACKAGE_NAME;
+// Класс для редактирования кнопки
 
-public class Button4Add {
+import javax.swing.*;
+import java.awt.*;
+
+public class Button4Add extends JButton {
+    public Button4Add(String s, int w, int h) {
+        super(s);
+        
+        setPreferredSize(new Dimension(w, h));
+    }
 }
