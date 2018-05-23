@@ -21,31 +21,23 @@ public class Plan extends JFrame {
     //Поля
     private Panel4Plan tasks;
     private Panel4Plan addTasks;
-    private Button4Add bAdd;
 
     private Plan() {
         initPanel();
-        initButton();
         adding();
         initFrame();
-    }
-
-    private void initButton() {
-        bAdd = new Button4Add("Добавить", 90, 20);
-        bAdd.addActionListener(new ButtonListener());
     }
 
     private void adding() {
         add(tasks, BorderLayout.EAST);
         add(addTasks, BorderLayout.WEST);
-        addTasks.add(bAdd);
     }
 
     private void initPanel() {
-        tasks = new Panel4Plan(WIDTH_FRAME_TASKS, HEIGHT_FRAME);
+        tasks = new Panel4Plan(new GridLayout(), WIDTH_FRAME_TASKS, HEIGHT_FRAME);
         tasks.setBackground(Color.BLACK);
 
-        addTasks = new Panel4Plan(WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
+        addTasks = new Panel4Plan(new FlowLayout(), WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
         addTasks.setBackground(Color.RED);
     }
 
@@ -57,12 +49,5 @@ public class Plan extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-    }
-
-    private class ButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            bAdd.setVisible(false);
-        }
     }
 }
