@@ -19,7 +19,7 @@ public class Plan extends JFrame {
     private final static int WIDTH_FRAME_TASKS = WIDTH_FRAME - WIDTH_FRAME_ADDTASKS;
 
     //Поля
-    private Panel4Plan tasks;
+    private Panel4OutTasks tasks;
     private Panel4Plan addTasks;
 
     private Plan() {
@@ -34,7 +34,7 @@ public class Plan extends JFrame {
     }
 
     private void initPanel() {
-        tasks = new Panel4Plan(new GridLayout(), WIDTH_FRAME_TASKS, HEIGHT_FRAME);
+        tasks = new Panel4OutTasks(new GridLayout(), WIDTH_FRAME_TASKS, HEIGHT_FRAME);
         tasks.setBackground(Color.BLACK);
 
         addTasks = new Panel4Plan(new FlowLayout(), WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
