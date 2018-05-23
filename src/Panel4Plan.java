@@ -8,19 +8,21 @@ public class Panel4Plan extends JPanel {
     private final int wButton = 90;
     private final int hButton = 90;
     private Button4Add buttonAdd;
+    private JLabel adding;
 
     public Panel4Plan(FlowLayout lm, int w, int h) {
         setLayout(lm); // Установить деспетчер компановки
         setPreferredSize(new Dimension(w, h)); // Установить предпочтительные размеры окна
 
+        initLabel();
         toolPanel();
         initButton();
         adding();
     }
 
-    public Panel4Plan(GridLayout gm, int w, int h) {
-        setLayout(gm); // Установить деспетчер компановки
-        setPreferredSize(new Dimension(w, h)); // Установить предпочтительные размеры окна
+    private void initLabel() {
+        adding = new JLabel("Добавить");
+        adding.setFont(new Font("Times New Roman", Font.BOLD, 20));
     }
 
     private void initButton() {
@@ -29,12 +31,13 @@ public class Panel4Plan extends JPanel {
 
     private void toolPanel() {
         panel = new JPanel();
-        panel.setBackground(Color.BLUE);
-        panel.setPreferredSize(new Dimension(140, 120));
+        panel.setBackground(Color.ORANGE);
+        panel.setPreferredSize(new Dimension(140, 140));
     }
 
     private void adding() {
         add(panel);
+        panel.add(adding);
         panel.add(buttonAdd);
     }
 }
