@@ -13,7 +13,7 @@ public class Panel4Plan extends JPanel {
     private final int hPanel = 140;
     private final int wPanelInputInfo = 380;
     private final int hPanelInputInfo = 350;
-    private Button4Add buttonAdd;
+    private JButton buttonAdd;
     private JLabel adding;
 
     public Panel4Plan(int w, int h) {
@@ -32,7 +32,8 @@ public class Panel4Plan extends JPanel {
     }
 
     private void initButton() {
-        buttonAdd = new Button4Add(wButton, hButton);
+        buttonAdd = new JButton();
+        buttonAdd.setPreferredSize(new Dimension(wButton, hButton));
         buttonAdd.addActionListener(new ButtonListener());
     }
 
