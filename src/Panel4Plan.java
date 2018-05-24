@@ -14,12 +14,12 @@ public class Panel4Plan extends JPanel {
     private Button4Add buttonAdd;
     private JLabel adding;
 
-    public Panel4Plan(FlowLayout lm, int w, int h) {
+    public Panel4Plan(int w, int h) {
         setLayout(null); // Установить деспетчер компановки
         setPreferredSize(new Dimension(w, h)); // Установить предпочтительные размеры окна
 
         initLabel();
-        toolPanel(w, h);
+        toolPanels(w, h);
         initButton();
         adding();
     }
@@ -34,11 +34,14 @@ public class Panel4Plan extends JPanel {
         buttonAdd.addActionListener(new ButtonListener());
     }
 
-    private void toolPanel(int w, int h) {
-        panel = new JPanel();
+    private void toolPanels(int w, int h) {
+        panel = new JPanel(); // Настройки панели на которой размещены кнопка с меткой
         panel.setBounds((w / 2) - wPanel / 2, (h / 2) - hPanel / 2, wPanel, hPanel);
         panel.setBackground(Color.ORANGE);
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
+
+        // Настройки панели на которой будут указаны параметры
+
     }
 
     private void adding() {
