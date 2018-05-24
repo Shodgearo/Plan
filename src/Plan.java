@@ -35,7 +35,7 @@ public class Plan extends JFrame {
         tasks = new Panel4OutTasks(new GridLayout(), WIDTH_FRAME_TASKS, HEIGHT_FRAME);
         tasks.setBackground(Color.BLACK);
 
-        addTasks = new Panel4Plan(new FlowLayout(), WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
+        addTasks = new Panel4Plan(WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
         addTasks.setBackground(Color.RED);
     }
 
