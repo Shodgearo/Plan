@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Panel4Plan extends JPanel {
-    private JPanel panel, panelInputInfo;
+    private JPanel panel;
+    private PanelInfo panelInputInfo;
     private final int wButton = 90;
     private final int hButton = 90;
     private final int wPanel = 140;
@@ -47,12 +48,11 @@ public class Panel4Plan extends JPanel {
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
 
         // Настройки панели на которой будут указаны параметры
-        panelInputInfo = new JPanel();
+        panelInputInfo = new PanelInfo();
         panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (hieght) - hPanelInputInfo / 2,
                                                                         wPanelInputInfo, hPanelInputInfo);
         panelInputInfo.setBackground(Color.GREEN);
         panelInputInfo.setPreferredSize(new Dimension(wPanelInputInfo, hPanelInputInfo));
-        panelInputInfo.setVisible(false);
     }
 
     private void adding() {
