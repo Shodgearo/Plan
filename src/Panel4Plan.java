@@ -6,11 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Panel4Plan extends JPanel {
-    private JPanel panel;
+    private JPanel panel, panelInputInfo;
     private final int wButton = 90;
     private final int hButton = 90;
     private final int wPanel = 140;
     private final int hPanel = 140;
+    private final int wPanelInputInfo = 380;
+    private final int hPanelInputInfo = 350;
     private Button4Add buttonAdd;
     private JLabel adding;
 
@@ -35,16 +37,25 @@ public class Panel4Plan extends JPanel {
     }
 
     private void toolPanels(int w, int h) {
+        int width = w / 2;
+        int hieght = h / 2;
+
         panel = new JPanel(); // Настройки панели на которой размещены кнопка с меткой
-        panel.setBounds((w / 2) - wPanel / 2, (h / 2) - hPanel / 2, wPanel, hPanel);
+        panel.setBounds((width) - wPanel / 2, (hieght) - hPanel / 2, wPanel, hPanel);
         panel.setBackground(Color.ORANGE);
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
 
         // Настройки панели на которой будут указаны параметры
-
+        panelInputInfo = new JPanel();
+        panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (hieght) - hPanelInputInfo / 2,
+                                                                        wPanelInputInfo, hPanelInputInfo);
+        panelInputInfo.setBackground(Color.GREEN);
+        panelInputInfo.setPreferredSize(new Dimension(wPanelInputInfo, hPanelInputInfo));
+        panelInputInfo.setVisible(false);
     }
 
     private void adding() {
+        add(panelInputInfo);
         add(panel);
         panel.add(adding);
         panel.add(buttonAdd);
@@ -54,6 +65,7 @@ public class Panel4Plan extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             panel.setVisible(false);
+            panelInputInfo.setVisible(true);
         }
     }
 }
