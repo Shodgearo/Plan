@@ -13,7 +13,7 @@ public class Panel4Plan extends JPanel {
     private final int wPanel = 140;
     private final int hPanel = 140;
     private final int wPanelInputInfo = 380;
-    private final int hPanelInputInfo = 350;
+    private final int hPanelInputInfo = 300;
     private JButton buttonAdd;
     private JLabel adding;
 
