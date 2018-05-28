@@ -8,8 +8,10 @@ public class PanelInfo extends JPanel {
     private JRadioButton single, video, book, audio;
     private JLabel tSingle, tVideo, tBook, tAudio;
     private ButtonGroup buttonGroup;
+    private JPanel panelTextField, panelRadioButtons, panelInputProgress, panelOK;
 
     PanelInfo() {
+        setLayout(new GridLayout(4, 1, 0, 35));
         toolsComponents();
         adding();
 
@@ -41,21 +43,27 @@ public class PanelInfo extends JPanel {
         buttonGroup.add(book);
         buttonGroup.add(audio);
         buttonGroup.setSelected(single.getModel(), true);
+
+        panelRadioButtons = new JPanel();
     }
 
     private void initTextField() {
         nameField = new JTextField("Введите название задачи", 20);
+
+        panelTextField = new JPanel();
     }
 
     private void adding() {
-        add(nameField);
-        add(tSingle);
-        add(single);
-        add(tVideo);
-        add(video);
-        add(tBook);
-        add(book);
-        add(tAudio);
-        add(audio);
+        add(panelTextField);
+        panelTextField.add(nameField);
+        add(panelRadioButtons);
+        panelRadioButtons.add(tSingle);
+        panelRadioButtons.add(single);
+        panelRadioButtons.add(tVideo);
+        panelRadioButtons.add(video);
+        panelRadioButtons.add(tBook);
+        panelRadioButtons.add(book);
+        panelRadioButtons.add(tAudio);
+        panelRadioButtons.add(audio);
     }
 }
