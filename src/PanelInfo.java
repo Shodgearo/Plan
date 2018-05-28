@@ -9,6 +9,7 @@ public class PanelInfo extends JPanel {
     private JLabel tSingle, tVideo, tBook, tAudio;
     private ButtonGroup buttonGroup;
     private JPanel panelTextField, panelRadioButtons, panelInputProgress, panelOK;
+    private JButton ok;
 
     PanelInfo() {
         setLayout(new GridLayout(4, 1, 0, 35));
@@ -22,6 +23,7 @@ public class PanelInfo extends JPanel {
         initTextField();
         initRadioButtons();
         initLabels();
+        initButton();
     }
 
     private void initLabels() {
@@ -53,6 +55,11 @@ public class PanelInfo extends JPanel {
         panelTextField = new JPanel();
     }
 
+    private void initButton() {
+        ok = new JButton("OK");
+        panelOK = new JPanel();
+    }
+
     private void adding() {
         add(panelTextField);
         panelTextField.add(nameField);
@@ -65,5 +72,7 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(book);
         panelRadioButtons.add(tAudio);
         panelRadioButtons.add(audio);
+        add(panelOK);
+        panelOK.add(ok);
     }
 }
