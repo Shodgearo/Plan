@@ -11,7 +11,7 @@ public class MiniPanel4InputProgress extends JPanel {
         add(startField);
         add(endField);
 
-        setVisible(false);
+        setVisible(true);
     }
 
     public MiniPanel4InputProgress(String msg) {
