@@ -4,15 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelInfo extends JPanel {
-    private JTextField nameField;
+    private JTextField nameField, startField, end;
+    private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JLabel tSingle, tVideo, tBook, tAudio;
-    private ButtonGroup buttonGroup;
-    private JPanel panelTextField, panelRadioButtons, panelInputProgress, panelOK;
+    private JPanel panelTextField, panelRadioButtons, panelInputProgress, panelOK, panelComment;
     private JButton ok;
 
     PanelInfo() {
-        setLayout(new GridLayout(4, 1, 0, 35));
+        setLayout(new GridLayout(5, 1, 0, 25));
         toolsComponents();
         adding();
 
@@ -31,6 +31,11 @@ public class PanelInfo extends JPanel {
         tVideo = new JLabel("Видео");
         tBook = new JLabel("Книга");
         tAudio = new JLabel("Аудио");
+
+        tSingle.setFont(Panel4Plan.getGenericFont(15));
+        tVideo.setFont(Panel4Plan.getGenericFont(15));
+        tBook.setFont(Panel4Plan.getGenericFont(15));
+        tAudio.setFont(Panel4Plan.getGenericFont(15));
     }
 
     private void initRadioButtons() {
@@ -51,12 +56,15 @@ public class PanelInfo extends JPanel {
 
     private void initTextField() {
         nameField = new JTextField("Введите название задачи", 20);
+        nameField.setFont(Panel4Plan.getGenericFont(20));
 
         panelTextField = new JPanel();
     }
 
     private void initButton() {
         ok = new JButton("OK");
+        ok.setFont(Panel4Plan.getGenericFont(20));
+        ok.setPreferredSize(new Dimension(65, 32));
         panelOK = new JPanel();
     }
 
