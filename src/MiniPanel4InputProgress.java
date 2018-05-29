@@ -11,13 +11,13 @@ public class MiniPanel4InputProgress extends JPanel {
         add(startField);
         add(endField);
 
-        setVisible(true);
+        setVisible(false);
     }
 
     public MiniPanel4InputProgress(String msg) {
         initTextFields(msg);
 
-        add(endField);
+        add(startField);
 
         setVisible(true);
     }
@@ -32,10 +32,5 @@ public class MiniPanel4InputProgress extends JPanel {
         startField.setToolTipText("Начало");
         endField = new JTextField("До", 8);
         endField.setToolTipText("Конец");
-    }
-
-    private void adding() {
-        add(startField);
-        add(endField);
     }
 }
