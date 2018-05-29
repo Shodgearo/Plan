@@ -10,11 +10,11 @@ public class PanelInfo extends JPanel {
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JPanel panelTextField, panelRadioButtons, panelOK, panelComment;
-    private MiniPanel4InputProgress panelInputProgress;
+    private MiniPanel4InputProgress panelInputProgress0, panelInputProgress1;
     private JButton ok;
 
     PanelInfo() {
-        setLayout(new GridLayout(5, 1, 0, 25));
+        setLayout(new GridLayout(0, 1, 0, 25));
         toolsComponents();
         adding();
 
@@ -25,6 +25,8 @@ public class PanelInfo extends JPanel {
         initTextField();
         initRadioButtons();
         initButton();
+        panelInputProgress0 = new MiniPanel4InputProgress("Прогресс");
+        panelInputProgress1 = new MiniPanel4InputProgress();
     }
 
     private void initRadioButtons() {
@@ -38,7 +40,7 @@ public class PanelInfo extends JPanel {
         buttonGroup.add(video);
         buttonGroup.add(book);
         buttonGroup.add(audio);
-        buttonGroup.setSelected(single.getModel(), true);
+        single.setSelected(true);
 
         panelRadioButtons = new JPanel();
 
@@ -75,7 +77,8 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(video);
         panelRadioButtons.add(book);
         panelRadioButtons.add(audio);
-        add(panelInputProgress);
+        add(panelInputProgress0);
+        add(panelInputProgress1);
         add(panelOK);
         panelOK.add(ok);
     }
@@ -84,9 +87,14 @@ public class PanelInfo extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(e.getActionCommand());
-            if(e.getActionCommand().equals("Одна задача") || e.getActionCommand().equals("Книга"))
-                add(new MiniPanel4InputProgress("Закладка"));
-            else add(new MiniPanel4InputProgress());
+            if (e.getActionCommand().equals("Одна задача") || e.getActionCommand().equals("Книга")) {
+                panelInputProgress0.setVisible(true);
+                panelInputProgress1.setVisible(false);
+            }
+            else {
+                panelInputProgress0.setVisible(false);
+                panelInputProgress1.setVisible(true);
+            }
         }
     }
 }
