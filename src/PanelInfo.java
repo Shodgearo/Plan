@@ -2,9 +2,11 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PanelInfo extends JPanel {
-    private JTextField nameField, startField, endField;
+    private JTextField nameField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JLabel tSingle, tVideo, tBook, tAudio;
@@ -23,7 +25,7 @@ public class PanelInfo extends JPanel {
     private void toolsComponents() {
         initTextField();
         initRadioButtons();
-        initLabels();
+//        initLabels();
         initButton();
     }
 
@@ -40,10 +42,10 @@ public class PanelInfo extends JPanel {
     }
 
     private void initRadioButtons() {
-        single = new JRadioButton();
-        video = new JRadioButton();
-        book = new JRadioButton();
-        audio = new JRadioButton();
+        single = new JRadioButton("Одна задача");
+        video = new JRadioButton("Видео");
+        book = new JRadioButton("Книга");
+        audio = new JRadioButton("Аудио");
         buttonGroup = new ButtonGroup();
 
         buttonGroup.add(single);
@@ -53,20 +55,23 @@ public class PanelInfo extends JPanel {
         buttonGroup.setSelected(single.getModel(), true);
 
         panelRadioButtons = new JPanel();
+
+        single.addActionListener(new RadioButtonListener());
+        video.addActionListener(new RadioButtonListener());
+        book.addActionListener(new RadioButtonListener());
+        audio.addActionListener(new RadioButtonListener());
+
+        single.setFont(Panel4Plan.getGenericFont(15));
+        video.setFont(Panel4Plan.getGenericFont(15));
+        book.setFont(Panel4Plan.getGenericFont(15));
+        audio.setFont(Panel4Plan.getGenericFont(15));
     }
 
     private void initTextField() {
         nameField = new JTextField("Введите название задачи", 20);
         nameField.setFont(Panel4Plan.getGenericFont(20));
 
-        startField = new JTextField("От", 5);
-        startField.setToolTipText("Начало");
-        endField = new JTextField("До", 8);
-        endField.setToolTipText("Конец");
-
         panelTextField = new JPanel();
-        panelInputProgress = new MiniPanel4InputProgress();
-        panelInputProgress.setVisible(false);
     }
 
     private void initButton() {
@@ -80,18 +85,26 @@ public class PanelInfo extends JPanel {
         add(panelTextField);
         panelTextField.add(nameField);
         add(panelRadioButtons);
-        panelRadioButtons.add(tSingle);
+//        panelRadioButtons.add(tSingle);
         panelRadioButtons.add(single);
-        panelRadioButtons.add(tVideo);
+//        panelRadioButtons.add(tVideo);
         panelRadioButtons.add(video);
-        panelRadioButtons.add(tBook);
+//        panelRadioButtons.add(tBook);
         panelRadioButtons.add(book);
-        panelRadioButtons.add(tAudio);
+//        panelRadioButtons.add(tAudio);
         panelRadioButtons.add(audio);
         add(panelInputProgress);
-        panelInputProgress.add(startField);
-        panelInputProgress.add(endField);
         add(panelOK);
         panelOK.add(ok);
+    }
+
+    private class RadioButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(e.getActionCommand());
+            if(e.getActionCommand().equals("Одна задача") || e.getActionCommand().equals("Книга"))
+                add(new MiniPanel4InputProgress("Закладка"));
+            else add(new MiniPanel4InputProgress());
+        }
     }
 }
