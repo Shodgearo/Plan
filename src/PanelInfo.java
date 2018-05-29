@@ -78,22 +78,24 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(book);
         panelRadioButtons.add(audio);
         add(panelInputProgress0);
-        add(panelInputProgress1);
-        add(panelOK);
-        panelOK.add(ok);
+//        add(panelInputProgress1);
+//        add(panelOK);
+//        panelOK.add(ok);
     }
 
     private class RadioButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(e.getActionCommand());
             if (e.getActionCommand().equals("Одна задача") || e.getActionCommand().equals("Книга")) {
-                panelInputProgress0.setVisible(true);
-                panelInputProgress1.setVisible(false);
-            }
-            else {
-                panelInputProgress0.setVisible(false);
-                panelInputProgress1.setVisible(true);
+                remove(panelInputProgress0);
+                panelInputProgress0 = new MiniPanel4InputProgress("Прогресс");
+                add(panelInputProgress0);
+                revalidate();
+            } else {
+                remove(panelInputProgress0);
+                panelInputProgress0 = new MiniPanel4InputProgress();
+                add(panelInputProgress0);
+                revalidate();
             }
         }
     }
