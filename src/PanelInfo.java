@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelInfo extends JPanel {
-    private JTextField nameField, startField, end;
+    private JTextField nameField, startField, endField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JLabel tSingle, tVideo, tBook, tAudio;
-    private JPanel panelTextField, panelRadioButtons, panelInputProgress, panelOK, panelComment;
+    private JPanel panelTextField, panelRadioButtons, panelOK, panelComment;
+    private MiniPanel4InputProgress panelInputProgress;
     private JButton ok;
 
     PanelInfo() {
@@ -58,7 +59,14 @@ public class PanelInfo extends JPanel {
         nameField = new JTextField("Введите название задачи", 20);
         nameField.setFont(Panel4Plan.getGenericFont(20));
 
+        startField = new JTextField("От", 5);
+        startField.setToolTipText("Начало");
+        endField = new JTextField("До", 8);
+        endField.setToolTipText("Конец");
+
         panelTextField = new JPanel();
+        panelInputProgress = new MiniPanel4InputProgress();
+        panelInputProgress.setVisible(false);
     }
 
     private void initButton() {
@@ -80,6 +88,9 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(book);
         panelRadioButtons.add(tAudio);
         panelRadioButtons.add(audio);
+        add(panelInputProgress);
+        panelInputProgress.add(startField);
+        panelInputProgress.add(endField);
         add(panelOK);
         panelOK.add(ok);
     }
