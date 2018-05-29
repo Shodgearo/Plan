@@ -9,7 +9,6 @@ public class PanelInfo extends JPanel {
     private JTextField nameField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
-    private JLabel tSingle, tVideo, tBook, tAudio;
     private JPanel panelTextField, panelRadioButtons, panelOK, panelComment;
     private MiniPanel4InputProgress panelInputProgress;
     private JButton ok;
@@ -25,20 +24,7 @@ public class PanelInfo extends JPanel {
     private void toolsComponents() {
         initTextField();
         initRadioButtons();
-//        initLabels();
         initButton();
-    }
-
-    private void initLabels() {
-        tSingle = new JLabel("Одна задача");
-        tVideo = new JLabel("Видео");
-        tBook = new JLabel("Книга");
-        tAudio = new JLabel("Аудио");
-
-        tSingle.setFont(Panel4Plan.getGenericFont(15));
-        tVideo.setFont(Panel4Plan.getGenericFont(15));
-        tBook.setFont(Panel4Plan.getGenericFont(15));
-        tAudio.setFont(Panel4Plan.getGenericFont(15));
     }
 
     private void initRadioButtons() {
@@ -85,13 +71,9 @@ public class PanelInfo extends JPanel {
         add(panelTextField);
         panelTextField.add(nameField);
         add(panelRadioButtons);
-//        panelRadioButtons.add(tSingle);
         panelRadioButtons.add(single);
-//        panelRadioButtons.add(tVideo);
         panelRadioButtons.add(video);
-//        panelRadioButtons.add(tBook);
         panelRadioButtons.add(book);
-//        panelRadioButtons.add(tAudio);
         panelRadioButtons.add(audio);
         add(panelInputProgress);
         add(panelOK);
