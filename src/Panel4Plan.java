@@ -16,8 +16,10 @@ public class Panel4Plan extends JPanel {
     private final int hPanelInputInfo = 300;
     private JButton buttonAdd;
     private JLabel adding;
+    private static Font genericFont;
 
     public Panel4Plan(int w, int h) {
+        genericFont = getGenericFont(20);
         setLayout(null); // Установить деспетчер компановки
         setPreferredSize(new Dimension(w, h)); // Установить предпочтительные размеры окна
 
@@ -29,7 +31,7 @@ public class Panel4Plan extends JPanel {
 
     private void initLabel() {
         adding = new JLabel("Добавить");
-        adding.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        adding.setFont(genericFont);
     }
 
     private void initButton() {
@@ -68,5 +70,9 @@ public class Panel4Plan extends JPanel {
             panel.setVisible(false);
             panelInputInfo.setVisible(true);
         }
+    }
+
+    public static Font getGenericFont(int size) {
+        return new Font("Times New Roman", Font.BOLD, size);
     }
 }
