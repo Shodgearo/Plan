@@ -9,9 +9,13 @@ public class PanelInfo extends JPanel {
     private JTextField nameField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
-    private JPanel panelTextField, panelRadioButtons, panelOK, panelComment;
+    private JPanel panelTextField, panelRadioButtons, panelComment;
     private MiniPanel4InputProgress panelInputProgress0, panelInputProgress1;
-    private JButton ok;
+    private JButton ok, comment, okComment;
+    private JTextArea commenting;
+    private JScrollPane scroll;
+    private JFrame frame;
+    private String str = "Введите комментарий, если требуется";
 
     PanelInfo() {
         setLayout(new GridLayout(0, 1, 0, 25));
@@ -25,8 +29,7 @@ public class PanelInfo extends JPanel {
         initTextField();
         initRadioButtons();
         initButton();
-        panelInputProgress0 = new MiniPanel4InputProgress("Прогресс");
-        panelInputProgress1 = new MiniPanel4InputProgress();
+        initTextArea();
     }
 
     private void initRadioButtons() {
@@ -66,7 +69,16 @@ public class PanelInfo extends JPanel {
         ok = new JButton("OK");
         ok.setFont(Panel4Plan.getGenericFont(20));
         ok.setPreferredSize(new Dimension(65, 32));
-        panelOK = new JPanel();
+//        ok.addActionListener();
+
+        comment = new JButton("Комментарий");
+        comment.setFont(Panel4Plan.getGenericFont(20));
+        comment.addActionListener(new ButtonCommentListener());
+    }
+
+    private void initTextArea() {
+        commenting = new JTextArea(str, 5, 5);
+        scroll = new JScrollPane(commenting);
     }
 
     private void adding() {
@@ -77,10 +89,8 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(video);
         panelRadioButtons.add(book);
         panelRadioButtons.add(audio);
-        add(panelInputProgress0);
-//        add(panelInputProgress1);
-//        add(panelOK);
-//        panelOK.add(ok);
+        add(comment);
+        add(ok);
     }
 
     private class RadioButtonListener implements ActionListener {
@@ -97,6 +107,22 @@ public class PanelInfo extends JPanel {
                 add(panelInputProgress0);
                 revalidate();
             }
+        }
+    }
+
+    // Добавление комментария к задаче
+    private class ButtonCommentListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(frame != null) return;
+
+            frame = new JFrame();
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame.setSize(300, 120);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+
+            frame.add(scroll);
         }
     }
 }
