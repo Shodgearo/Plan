@@ -9,7 +9,7 @@ public class PanelInfo extends JPanel {
     private JTextField nameField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
-    private JPanel panelTextField, panelRadioButtons, panelComment;
+    private JPanel panelTextField, panelRadioButtons, panelButtonComment, panelButtonOk, panelComment;
     private MiniPanel4InputProgress panelInputProgress0, panelInputProgress1;
     private JButton ok, comment, okComment;
     private JTextArea commenting;
@@ -30,6 +30,8 @@ public class PanelInfo extends JPanel {
         initRadioButtons();
         initButton();
         initTextArea();
+
+        panelComment = new JPanel();
     }
 
     private void initRadioButtons() {
@@ -69,15 +71,18 @@ public class PanelInfo extends JPanel {
         ok = new JButton("OK");
         ok.setFont(Panel4Plan.getGenericFont(20));
         ok.setPreferredSize(new Dimension(65, 32));
-//        ok.addActionListener();
 
         comment = new JButton("Комментарий");
         comment.setFont(Panel4Plan.getGenericFont(20));
         comment.addActionListener(new ButtonCommentListener());
+
+        okComment = new JButton("OK");
+        okComment.setFont(Panel4Plan.getGenericFont(20));
+        okComment.setPreferredSize(new Dimension(100, 40));
     }
 
     private void initTextArea() {
-        commenting = new JTextArea(str, 5, 5);
+        commenting = new JTextArea(5, 15);
         scroll = new JScrollPane(commenting);
     }
 
@@ -118,11 +123,16 @@ public class PanelInfo extends JPanel {
 
             frame = new JFrame();
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            frame.setSize(300, 120);
+            frame.setResizable(false);
+            frame.setAlwaysOnTop(true);
+            frame.setSize(250, 190);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
 
-            frame.add(scroll);
+            frame.add(panelComment);
+            panelComment.setLayout(new FlowLayout());
+            panelComment.add(scroll, BorderLayout.NORTH);
+            panelComment.add(okComment, BorderLayout.SOUTH);
         }
     }
 }
