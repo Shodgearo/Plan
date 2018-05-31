@@ -9,13 +9,10 @@ public class PanelInfo extends JPanel {
     private JTextField nameField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
-    private JPanel panelTextField, panelRadioButtons, panelButtonComment, panelButtonOk, panelComment;
+    private JPanel panelTextField, panelRadioButtons, panelButtonComment, panelOK;
     private MiniPanel4InputProgress panelInputProgress0, panelInputProgress1;
-    private JButton ok, comment, okComment;
-    private JTextArea commenting;
-    private JScrollPane scroll;
-    private JFrame frame;
-    private String str = "Введите комментарий, если требуется";
+    private JButton ok, comment;
+    private Frame4Comment frame;
 
     PanelInfo() {
         setLayout(new GridLayout(0, 1, 0, 25));
@@ -29,9 +26,10 @@ public class PanelInfo extends JPanel {
         initTextField();
         initRadioButtons();
         initButton();
-        initTextArea();
 
-        panelComment = new JPanel();
+        panelInputProgress0 = new MiniPanel4InputProgress();
+        panelButtonComment = new JPanel();
+        panelOK = new JPanel();
     }
 
     private void initRadioButtons() {
@@ -75,15 +73,6 @@ public class PanelInfo extends JPanel {
         comment = new JButton("Комментарий");
         comment.setFont(Panel4Plan.getGenericFont(20));
         comment.addActionListener(new ButtonCommentListener());
-
-        okComment = new JButton("OK");
-        okComment.setFont(Panel4Plan.getGenericFont(20));
-        okComment.setPreferredSize(new Dimension(100, 40));
-    }
-
-    private void initTextArea() {
-        commenting = new JTextArea(5, 15);
-        scroll = new JScrollPane(commenting);
     }
 
     private void adding() {
@@ -94,8 +83,11 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(video);
         panelRadioButtons.add(book);
         panelRadioButtons.add(audio);
-        add(comment);
-        add(ok);
+        add(panelInputProgress0);
+        add(panelButtonComment);
+        panelButtonComment.add(comment);
+        add(panelOK);
+        panelOK.add(ok);
     }
 
     private class RadioButtonListener implements ActionListener {
@@ -121,18 +113,7 @@ public class PanelInfo extends JPanel {
         public void actionPerformed(ActionEvent e) {
             if(frame != null) return;
 
-            frame = new JFrame();
-            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            frame.setResizable(false);
-            frame.setAlwaysOnTop(true);
-            frame.setSize(250, 190);
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-
-            frame.add(panelComment);
-            panelComment.setLayout(new FlowLayout());
-            panelComment.add(scroll, BorderLayout.NORTH);
-            panelComment.add(okComment, BorderLayout.SOUTH);
+            frame = new Frame4Comment();
         }
     }
 }
