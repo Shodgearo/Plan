@@ -10,12 +10,12 @@ public class PanelInfo extends JPanel {
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JPanel panelTextField, panelRadioButtons, panelButtonComment, panelOK;
-    private MiniPanel4InputProgress panelInputProgress0, panelInputProgress1;
+    private MiniPanel4InputProgress panelInputProgress;
     private JButton ok, comment;
     private Frame4Comment frame;
 
     PanelInfo() {
-        setLayout(new GridLayout(0, 1, 0, 25));
+        setLayout(new GridLayout(5, 1, 0, 25));
         toolsComponents();
         adding();
 
@@ -27,7 +27,7 @@ public class PanelInfo extends JPanel {
         initRadioButtons();
         initButton();
 
-        panelInputProgress0 = new MiniPanel4InputProgress();
+        panelInputProgress = new MiniPanel4InputProgress();
         panelButtonComment = new JPanel();
         panelOK = new JPanel();
     }
@@ -43,7 +43,6 @@ public class PanelInfo extends JPanel {
         buttonGroup.add(video);
         buttonGroup.add(book);
         buttonGroup.add(audio);
-        single.setSelected(true);
 
         panelRadioButtons = new JPanel();
 
@@ -85,7 +84,10 @@ public class PanelInfo extends JPanel {
         panelRadioButtons.add(video);
         panelRadioButtons.add(book);
         panelRadioButtons.add(audio);
-        add(panelInputProgress0);
+    }
+
+    private void addSecondStep() {
+        add(panelInputProgress);
         add(panelButtonComment);
         panelButtonComment.add(comment);
         add(panelOK);
@@ -96,15 +98,17 @@ public class PanelInfo extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals("Одна задача") || e.getActionCommand().equals("Книга")) {
-                remove(panelInputProgress0);
-                panelInputProgress0 = new MiniPanel4InputProgress("Прогресс");
-                add(panelInputProgress0);
+                remove(panelInputProgress);
+                panelInputProgress = new MiniPanel4InputProgress("Прогресс");
+                add(panelInputProgress);
                 revalidate();
+                addSecondStep();
             } else {
-                remove(panelInputProgress0);
-                panelInputProgress0 = new MiniPanel4InputProgress();
-                add(panelInputProgress0);
+                remove(panelInputProgress);
+                panelInputProgress = new MiniPanel4InputProgress();
+                add(panelInputProgress);
                 revalidate();
+                addSecondStep();
             }
         }
     }
