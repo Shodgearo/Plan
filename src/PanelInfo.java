@@ -13,8 +13,10 @@ public class PanelInfo extends JPanel {
     private MiniPanel4InputProgress panelInputProgress;
     private JButton ok, comment;
     private Frame4Comment frame;
+    private JPanel panel; // Панель для того чтобы отобразить видимость панели с кнопкой добавления
 
-    PanelInfo() {
+    PanelInfo(JPanel panel) {
+        this.panel = panel;
         setLayout(new GridLayout(5, 1, 0, 25));
         toolsComponents();
         adding();
@@ -117,9 +119,8 @@ public class PanelInfo extends JPanel {
     private class ButtonCommentListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(frame != null) return;
-
-            frame = new Frame4Comment();
+            if(frame == null) frame = new Frame4Comment();
+            else frame.setVisible(true);
         }
     }
 
@@ -128,6 +129,8 @@ public class PanelInfo extends JPanel {
         public void actionPerformed(ActionEvent e) {
             // передадим всю инфу на панель отображения задач
             setVisible(false);
+            panel.setVisible(true);
+            frame = null;
         }
     }
 }
