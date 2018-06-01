@@ -70,6 +70,8 @@ public class PanelInfo extends JPanel {
         ok.setFont(Panel4Plan.getGenericFont(20));
         ok.setPreferredSize(new Dimension(65, 32));
 
+        ok.addActionListener(new ButtonOKListener());
+
         comment = new JButton("Комментарий");
         comment.setFont(Panel4Plan.getGenericFont(20));
         comment.addActionListener(new ButtonCommentListener());
@@ -114,6 +116,14 @@ public class PanelInfo extends JPanel {
             if(frame != null) return;
 
             frame = new Frame4Comment();
+        }
+    }
+
+    private class ButtonOKListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // передадим всю инфу на панель отображения задач
+            setVisible(false);
         }
     }
 }
