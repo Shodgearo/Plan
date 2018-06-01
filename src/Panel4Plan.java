@@ -50,7 +50,7 @@ public class Panel4Plan extends JPanel {
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
 
         // Настройки панели на которой будут указаны параметры
-        panelInputInfo = new PanelInfo();
+        panelInputInfo = new PanelInfo(panel);
         panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (hieght) - hPanelInputInfo / 2,
                                                                         wPanelInputInfo, hPanelInputInfo);
         panelInputInfo.setBackground(Color.GREEN);
