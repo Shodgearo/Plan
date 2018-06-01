@@ -33,6 +33,7 @@ public class Frame4Comment extends JFrame {
         commenting = new JTextArea(5, 15);
         commenting.setLineWrap(true);
         commenting.setToolTipText("Введите Ваш коммментарий");
+        commenting.setText(getTextComment());
         scroll = new JScrollPane(commenting);
     }
 
