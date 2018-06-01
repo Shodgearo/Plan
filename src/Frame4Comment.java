@@ -2,12 +2,15 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Frame4Comment extends JFrame {
     private JPanel panelComment;
     private JScrollPane scroll;
     private JButton okComment;
     private JTextArea commenting;
+    private String textComment = "";
 
     public Frame4Comment() {
         initScroll();
@@ -21,11 +24,15 @@ public class Frame4Comment extends JFrame {
         okComment = new JButton("OK");
         okComment.setFont(Panel4Plan.getGenericFont(20));
         okComment.setPreferredSize(new Dimension(100, 40));
+        okComment.setToolTipText("Нажмите, для сохранения");
+
+        okComment.addActionListener(new ButtonOkListener());
     }
 
     private void initScroll() {
         commenting = new JTextArea(5, 15);
         commenting.setLineWrap(true);
+        commenting.setToolTipText("Введите Ваш коммментарий");
         scroll = new JScrollPane(commenting);
     }
 
@@ -48,5 +55,17 @@ public class Frame4Comment extends JFrame {
         setSize(250, 190);
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    private class ButtonOkListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            textComment = commenting.getText();
+            dispose();
+        }
+    }
+
+    public String getTextComment() {
+        return textComment;
     }
 }
