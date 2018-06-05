@@ -131,6 +131,7 @@ public class PanelInfo extends JPanel {
             setVisible(false);
             panel.setVisible(true);
             frame = null;
+            // сброс всех полей
         }
     }
 }
