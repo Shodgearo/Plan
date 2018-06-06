@@ -93,7 +93,6 @@ public class PanelInfo extends JPanel {
     }
 
     private void addSecondStep() {
-        add(panelInputProgress);
         add(panelButtonComment);
         panelButtonComment.add(comment);
         add(panelOK);
@@ -143,6 +142,7 @@ public class PanelInfo extends JPanel {
             panel.setVisible(true);
             frame = null;
             // сброс всех полей
+            single.setSelected(true);
         }
     }
 
