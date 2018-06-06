@@ -32,7 +32,7 @@ public class Plan extends JFrame {
     }
 
     private void initPanel() {
-        tasks = new Panel4OutTasks(new GridLayout(), WIDTH_FRAME_TASKS, HEIGHT_FRAME);
+        tasks = new Panel4OutTasks(WIDTH_FRAME_TASKS, HEIGHT_FRAME);
         tasks.setBackground(Color.BLACK);
 
         addTasks = new Panel4Plan(WIDTH_FRAME_ADDTASKS, HEIGHT_FRAME);
