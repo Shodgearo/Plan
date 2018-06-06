@@ -15,6 +15,10 @@ public class PanelInfo extends JPanel {
     private Frame4Comment frame;
     private JPanel panel; // Панель для того чтобы отобразить видимость панели с кнопкой добавления
 
+    private String commentArea; // Строка для сохранения комментария
+    private String typeTask; // Строка для сохранения типа задачи
+    private int begin, end; // Для созранения начала и конца текущей задачи
+
     PanelInfo(JPanel panel) {
         this.panel = panel;
         setLayout(new GridLayout(5, 1, 0, 25));
@@ -99,18 +103,22 @@ public class PanelInfo extends JPanel {
     private class RadioButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getActionCommand().equals("Одна задача") || e.getActionCommand().equals("Книга")) {
+            String command = e.getActionCommand(); // Для удобства
+
+            if (command.equals("Одна задача") || command.equals("Книга")) {
                 remove(panelInputProgress);
                 panelInputProgress = new MiniPanel4InputProgress("Прогресс");
                 add(panelInputProgress);
                 revalidate();
                 addSecondStep();
+                typeTask = command;
             } else {
                 remove(panelInputProgress);
                 panelInputProgress = new MiniPanel4InputProgress();
                 add(panelInputProgress);
                 revalidate();
                 addSecondStep();
+                typeTask = command;
             }
         }
     }
@@ -133,5 +141,21 @@ public class PanelInfo extends JPanel {
             frame = null;
             // сброс всех полей
         }
+    }
+
+    public String getCommentArea() {
+        return commentArea;
+    }
+
+    public String getTypeTask() {
+        return typeTask;
+    }
+
+    public int getBegin() {
+        return begin;
+    }
+
+    public int getEnd() {
+        return end;
     }
 }
