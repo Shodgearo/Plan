@@ -4,9 +4,12 @@ import javax.swing.*;
 
 public class MiniPanel4InputProgress extends JPanel {
     private JTextField startField, endField;
+    private String begin, end;
 
     public MiniPanel4InputProgress() {
         initTextFields();
+
+        begin = end = "";
 
         add(startField);
         add(endField);
@@ -32,5 +35,13 @@ public class MiniPanel4InputProgress extends JPanel {
         startField.setToolTipText("Начало");
         endField = new JTextField("До", 8);
         endField.setToolTipText("Конец");
+    }
+
+    public String getBegin() {
+        return begin;
+    }
+
+    public String getEnd() {
+        return end;
     }
 }

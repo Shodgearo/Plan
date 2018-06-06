@@ -17,7 +17,7 @@ public class PanelInfo extends JPanel {
 
     private String commentArea; // Строка для сохранения комментария
     private String typeTask; // Строка для сохранения типа задачи
-    private int begin, end; // Для созранения начала и конца текущей задачи
+    private String begin, end; // Для созранения начала и конца текущей задачи
 
     PanelInfo(JPanel panel) {
         this.panel = panel;
@@ -136,6 +136,9 @@ public class PanelInfo extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             // передадим всю инфу на панель отображения задач
+            if(frame != null) commentArea = frame.getTextComment();
+            begin = panelInputProgress.getBegin();
+            end = panelInputProgress.getEnd();
             setVisible(false);
             panel.setVisible(true);
             frame = null;
@@ -151,11 +154,11 @@ public class PanelInfo extends JPanel {
         return typeTask;
     }
 
-    public int getBegin() {
+    public String getBegin() {
         return begin;
     }
 
-    public int getEnd() {
+    public String getEnd() {
         return end;
     }
 }
