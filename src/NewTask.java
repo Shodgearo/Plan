@@ -3,7 +3,24 @@
 import javax.swing.*;
 
 public class NewTask extends JPanel {
-    public NewTask(String commentArea, String typeTask, String begin, String end) {
-        
+    private String commentArea, typeTask, begin, end;
+    private int id;
+    private JTextField start, finish;
+
+    public NewTask(String commentArea, String typeTask, String begin, String end, int countTasks) {
+        this.commentArea = commentArea;
+        this.typeTask = typeTask;
+        this.begin = begin;
+        this.end = end;
+
+        id = countTasks;
+    }
+
+    public NewTask(String commentArea, String typeTask, String begin, int countTasks) {
+        this.commentArea = commentArea;
+        this.typeTask = typeTask;
+        this.begin = begin;
+
+        id = countTasks;
     }
 }
