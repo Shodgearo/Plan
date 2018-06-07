@@ -143,7 +143,9 @@ public class PanelInfo extends JPanel {
             single.setSelected(true);
             startCount();
             // Создадим панель отображения задачи
-            outTasks.addNewTask(nameTask, commentArea, typeTask, begin, end);
+            if (nameTask.equals("Одна задача") || nameTask.equals("Книга"))
+                outTasks.addNewTask(nameTask, commentArea, typeTask, begin, end);
+            else outTasks.addNewTask(nameTask, commentArea, typeTask, begin);
         }
     }
     private void startCount() {
