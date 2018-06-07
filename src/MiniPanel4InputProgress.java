@@ -31,9 +31,9 @@ public class MiniPanel4InputProgress extends JPanel {
     }
 
     private void initTextFields() {
-        startField = new JTextField("От", 5);
+        startField = new JTextField(5);
         startField.setToolTipText("Начало");
-        endField = new JTextField("До", 8);
+        endField = new JTextField(8);
         endField.setToolTipText("Конец");
     }
 
