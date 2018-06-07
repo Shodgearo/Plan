@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Panel4OutTasks extends JPanel {
-    private LinkedList<JPanel> listOfTasks;
+    private LinkedList<NewTask> listOfTasks;
 
     public Panel4OutTasks(int w, int h) {
         setLayout(new GridLayout());
@@ -15,6 +15,6 @@ public class Panel4OutTasks extends JPanel {
     }
 
     public void addNewTask(String commentArea, String typeTask, String begin, String end) {
-
+        listOfTasks.add(new NewTask(commentArea, typeTask, begin, end));
     }
 }
