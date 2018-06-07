@@ -105,18 +105,11 @@ public class PanelInfo extends JPanel {
             String command = e.getActionCommand(); // Для удобства
 
             if (command.equals("Одна задача") || command.equals("Книга")) {
-                remove(panelInputProgress);
-                panelInputProgress = new MiniPanel4InputProgress("Прогресс");
-                add(panelInputProgress);
-                revalidate();
-                addSecondStep();
+                startCount("Прогресс");
                 typeTask = command;
             } else {
-                remove(panelInputProgress);
-                panelInputProgress = new MiniPanel4InputProgress();
-                add(panelInputProgress);
-                revalidate();
-                addSecondStep();
+                startCount();
+
                 typeTask = command;
             }
         }
@@ -124,14 +117,15 @@ public class PanelInfo extends JPanel {
 
     // Добавление комментария к задаче
     private class ButtonCommentListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             if(frame == null) frame = new Frame4Comment();
             else frame.setVisible(true);
         }
     }
-
     private class ButtonOKListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             // передадим всю инфу на панель отображения задач
@@ -143,7 +137,23 @@ public class PanelInfo extends JPanel {
             frame = null;
             // сброс всех полей
             single.setSelected(true);
+            startCount();
         }
+    }
+    private void startCount() {
+        remove(panelInputProgress);
+        panelInputProgress = new MiniPanel4InputProgress();
+        add(panelInputProgress);
+        revalidate();
+        addSecondStep();
+    }
+
+    private void startCount(String msg) {
+        remove(panelInputProgress);
+        panelInputProgress = new MiniPanel4InputProgress(msg);
+        add(panelInputProgress);
+        revalidate();
+        addSecondStep();
     }
 
     public String getCommentArea() {
