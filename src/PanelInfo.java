@@ -156,20 +156,4 @@ public class PanelInfo extends JPanel {
         revalidate();
         addSecondStep();
     }
-
-    public String getCommentArea() {
-        return commentArea;
-    }
-
-    public String getTypeTask() {
-        return typeTask;
-    }
-
-    public String getBegin() {
-        return begin;
-    }
-
-    public String getEnd() {
-        return end;
-    }
 }
