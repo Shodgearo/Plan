@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class Panel4Plan extends JPanel {
     private JPanel panel;
     private PanelInfo panelInputInfo;
+    private Panel4OutTasks tasks;
     private final int wButton = 90;
     private final int hButton = 90;
     private final int wPanel = 140;
@@ -18,7 +19,8 @@ public class Panel4Plan extends JPanel {
     private JLabel adding;
     private static Font genericFont;
 
-    public Panel4Plan(int w, int h) {
+    public Panel4Plan(int w, int h, Panel4OutTasks tasks) {
+        this.tasks = tasks;
         genericFont = getGenericFont(20);
         setLayout(null); // Установить деспетчер компановки
         setPreferredSize(new Dimension(w, h)); // Установить предпочтительные размеры окна
@@ -50,7 +52,7 @@ public class Panel4Plan extends JPanel {
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
 
         // Настройки панели на которой будут указаны параметры
-        panelInputInfo = new PanelInfo(panel);
+        panelInputInfo = new PanelInfo(panel, tasks);
         panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (hieght) - hPanelInputInfo / 2,
                                                                         wPanelInputInfo, hPanelInputInfo);
         panelInputInfo.setBackground(Color.GREEN);

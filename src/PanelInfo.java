@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelInfo extends JPanel {
+    private Panel4OutTasks outTasks;
     private JTextField nameField;
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
@@ -19,13 +20,14 @@ public class PanelInfo extends JPanel {
     private String typeTask; // Строка для сохранения типа задачи
     private String begin, end; // Для созранения начала и конца текущей задачи
 
-    PanelInfo(JPanel panel) {
+    PanelInfo(JPanel panel, Panel4OutTasks tasks) {
         this.panel = panel;
         setLayout(new GridLayout(5, 1, 0, 25));
         toolsComponents();
         adding();
 
         setVisible(false);
+        outTasks = tasks;
     }
 
     private void toolsComponents() {
@@ -135,6 +137,8 @@ public class PanelInfo extends JPanel {
             // сброс всех полей
             single.setSelected(true);
             startCount();
+            // Создадим панель отображения задачи
+            outTasks.addNewTask(commentArea, typeTask, begin, end);
         }
     }
     private void startCount() {
