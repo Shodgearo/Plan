@@ -109,7 +109,6 @@ public class PanelInfo extends JPanel {
                 typeTask = command;
             } else {
                 startCount();
-
                 typeTask = command;
             }
         }
@@ -117,7 +116,6 @@ public class PanelInfo extends JPanel {
 
     // Добавление комментария к задаче
     private class ButtonCommentListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if(frame == null) frame = new Frame4Comment();
@@ -125,7 +123,6 @@ public class PanelInfo extends JPanel {
         }
     }
     private class ButtonOKListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             // передадим всю инфу на панель отображения задач
