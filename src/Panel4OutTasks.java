@@ -17,12 +17,24 @@ public class Panel4OutTasks extends JPanel {
     }
 
     public void addNewTask(String nameTask, String commentArea, String typeTask, String begin, String end) {
-            NewTask task;
-
-        if (!end.equals("0")) task = new NewTask(nameTask, commentArea, typeTask, begin, end, countTasks);
-        else task = new NewTask(nameTask, commentArea, typeTask, begin, countTasks);
+        NewTask task = new NewTask(nameTask, commentArea, typeTask, begin, countTasks);
 
         listOfTasks.add(task);
         countTasks++;
+
+        adding(listOfTasks.getLast());
+    }
+
+    public void addNewTask(String nameTask, String commentArea, String typeTask, String begin) {
+        NewTask task = new NewTask(nameTask, commentArea, typeTask, begin, countTasks);
+
+        listOfTasks.add(task);
+        countTasks++;
+
+        adding(listOfTasks.getLast());
+    }
+
+    private void adding(NewTask last) {
+        add(last);
     }
 }
