@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 
 public class PanelInfo extends JPanel {
     private Panel4OutTasks outTasks;
+
     private JTextField nameField;
+
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JPanel panelTextField, panelRadioButtons, panelButtonComment, panelOK;
@@ -19,6 +21,7 @@ public class PanelInfo extends JPanel {
     private String commentArea; // Строка для сохранения комментария
     private String typeTask; // Строка для сохранения типа задачи
     private String begin, end; // Для созранения начала и конца текущей задачи
+    private String nameTask = ""; // Строка для сохранения названия задачи
 
     PanelInfo(JPanel panel, Panel4OutTasks tasks) {
         this.panel = panel;
@@ -102,6 +105,7 @@ public class PanelInfo extends JPanel {
     }
 
     private class RadioButtonListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand(); // Для удобства
@@ -115,9 +119,9 @@ public class PanelInfo extends JPanel {
             }
         }
     }
-
     // Добавление комментария к задаче
     private class ButtonCommentListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             if(frame == null) frame = new Frame4Comment();
@@ -131,6 +135,7 @@ public class PanelInfo extends JPanel {
             if(frame != null) commentArea = frame.getTextComment();
             begin = panelInputProgress.getBegin();
             end = panelInputProgress.getEnd();
+            nameTask = nameField.getText();
             setVisible(false);
             panel.setVisible(true);
             frame = null;
@@ -138,7 +143,7 @@ public class PanelInfo extends JPanel {
             single.setSelected(true);
             startCount();
             // Создадим панель отображения задачи
-            outTasks.addNewTask(commentArea, typeTask, begin, end);
+            outTasks.addNewTask(nameTask, commentArea, typeTask, begin, end);
         }
     }
     private void startCount() {
