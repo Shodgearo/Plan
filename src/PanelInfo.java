@@ -7,9 +7,7 @@ import java.awt.event.ActionListener;
 
 public class PanelInfo extends JPanel {
     private Panel4OutTasks outTasks;
-
     private JTextField nameField;
-
     private ButtonGroup buttonGroup;
     private JRadioButton single, video, book, audio;
     private JPanel panelTextField, panelRadioButtons, panelButtonComment, panelOK;
@@ -130,13 +128,17 @@ public class PanelInfo extends JPanel {
             setVisible(false);
             panel.setVisible(true);
             frame = null;
-            // сброс всех полей
-            single.setSelected(true);
-            startCount(typeTask);
             // Создадим панель отображения задачи
-            if (nameTask.equals("Одна задача") || nameTask.equals("Книга"))
-                outTasks.addNewTask(nameTask, commentArea, typeTask, begin, end);
-            else outTasks.addNewTask(nameTask, commentArea, typeTask, begin);
+            if (typeTask.equals("Одна задача") || typeTask.equals("Книга")) {
+                outTasks.addNewTask(nameTask, commentArea, typeTask, begin);
+            }
+            else outTasks.addNewTask(nameTask, commentArea, typeTask, begin, end);
+
+            // сброс всех полей
+            startCount(typeTask);
+            nameTask = "";
+            nameField.setText("");
+
         }
     }
 

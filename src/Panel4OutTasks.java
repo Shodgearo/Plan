@@ -19,6 +19,8 @@ public class Panel4OutTasks extends JPanel {
     public void addNewTask(String nameTask, String commentArea, String typeTask, String begin, String end) {
         NewTask task = new NewTask(nameTask, commentArea, typeTask, begin, end, countTasks);
 
+        System.out.println("1-2");
+
         listOfTasks.add(task);
         countTasks++;
 
@@ -27,6 +29,8 @@ public class Panel4OutTasks extends JPanel {
 
     public void addNewTask(String nameTask, String commentArea, String typeTask, String begin) {
         NewTask task = new NewTask(nameTask, commentArea, typeTask, begin, countTasks);
+
+        System.out.println("1");
 
         listOfTasks.add(task);
         countTasks++;
