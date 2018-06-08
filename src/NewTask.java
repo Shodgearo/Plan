@@ -27,7 +27,12 @@ public class NewTask extends JPanel {
         this.begin = begin;
         this.nameTask = nameTask;
 
+        System.out.println(begin);
+
         id = countTasks;
+
+        initLabel();
+        adding();
     }
 
     private void initLabel() {
@@ -40,7 +45,6 @@ public class NewTask extends JPanel {
         add(name);
         add(start);
         add(finish);
-        revalidate();
     }
 
     public String getName() {

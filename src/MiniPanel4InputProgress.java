@@ -4,30 +4,17 @@ import javax.swing.*;
 
 public class MiniPanel4InputProgress extends JPanel {
     private JTextField startField, endField;
-    private String begin, end;
-
-    public MiniPanel4InputProgress() {
-        initTextFields();
-
-        begin = end = "";
-
-        add(startField);
-        add(endField);
-
-        setVisible(true);
-    }
 
     public MiniPanel4InputProgress(String msg) {
-        initTextFields(msg);
+        initTextFields();
 
-        add(startField);
+        if(msg.equals("Одна задача") || msg.equals("Книга")) add(startField);
+        else {
+            add(startField);
+            add(endField);
+        }
 
         setVisible(true);
-    }
-
-    private void initTextFields(String msg) {
-        startField = new JTextField(msg, 10);
-        startField.setToolTipText("Прогресс");
     }
 
     private void initTextFields() {
@@ -38,10 +25,10 @@ public class MiniPanel4InputProgress extends JPanel {
     }
 
     public String getBegin() {
-        return begin;
+        return startField.getText();
     }
 
     public String getEnd() {
-        return end;
+        return endField.getText();
     }
 }

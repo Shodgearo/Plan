@@ -38,7 +38,7 @@ public class PanelInfo extends JPanel {
         initRadioButtons();
         initButton();
 
-        panelInputProgress = new MiniPanel4InputProgress();
+        panelInputProgress = new MiniPanel4InputProgress("Одна задача");
         panelButtonComment = new JPanel();
         panelOK = new JPanel();
     }
@@ -69,8 +69,9 @@ public class PanelInfo extends JPanel {
     }
 
     private void initTextField() {
-        nameField = new JTextField("Введите название задачи", 20);
+        nameField = new JTextField(20);
         nameField.setFont(Panel4Plan.getGenericFont(20));
+        nameField.setToolTipText("Введите название задачи");
 
         panelTextField = new JPanel();
     }
@@ -108,15 +109,8 @@ public class PanelInfo extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String command = e.getActionCommand(); // Для удобства
-
-            if (command.equals("Одна задача") || command.equals("Книга")) {
-                startCount("Прогресс");
-                typeTask = command;
-            } else {
-                startCount();
-                typeTask = command;
-            }
+            typeTask = e.getActionCommand();
+            startCount(typeTask);
         }
     }
     // Добавление комментария к задаче
@@ -132,28 +126,25 @@ public class PanelInfo extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             // передадим всю инфу на панель отображения задач
-            if(frame != null) commentArea = frame.getTextComment();
-            begin = panelInputProgress.getBegin();
-            end = panelInputProgress.getEnd();
-            nameTask = nameField.getText();
+            saveInfo();
             setVisible(false);
             panel.setVisible(true);
             frame = null;
             // сброс всех полей
             single.setSelected(true);
-            startCount();
+            startCount(typeTask);
             // Создадим панель отображения задачи
             if (nameTask.equals("Одна задача") || nameTask.equals("Книга"))
                 outTasks.addNewTask(nameTask, commentArea, typeTask, begin, end);
             else outTasks.addNewTask(nameTask, commentArea, typeTask, begin);
         }
     }
-    private void startCount() {
-        remove(panelInputProgress);
-        panelInputProgress = new MiniPanel4InputProgress();
-        add(panelInputProgress);
-        revalidate();
-        addSecondStep();
+
+    private void saveInfo() {
+        if(frame != null) commentArea = frame.getTextComment();
+        begin = panelInputProgress.getBegin();
+        end = panelInputProgress.getEnd();
+        nameTask = nameField.getText();
     }
 
     private void startCount(String msg) {
