@@ -19,6 +19,7 @@ public class NewTask extends JPanel {
 
         id = countTasks;
 
+        setPreferredSize(new Dimension(120, 80));
         initLabel();
         adding();
     }
@@ -32,6 +33,7 @@ public class NewTask extends JPanel {
 
         id = countTasks;
 
+        setPreferredSize(new Dimension(120, 80));
         initLabel();
         adding();
     }
