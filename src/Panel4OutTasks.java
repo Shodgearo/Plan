@@ -9,7 +9,7 @@ public class Panel4OutTasks extends JPanel {
     private int countTasks;
 
     public Panel4OutTasks(int w, int h) {
-        setLayout(new GridLayout(0, 1, 0, 20));
+        setLayout(new FlowLayout());
         setPreferredSize(new Dimension(w, h));
 
         listOfTasks = new LinkedList<>();
