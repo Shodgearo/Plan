@@ -65,8 +65,15 @@ public class Frame4Comment extends JFrame {
             dispose();
         }
     }
-
     public String getTextComment() {
         return textComment;
+    }
+
+    public void setTextComment(String comment){
+        commenting.setText(comment);
+    }
+
+    public void setEditing() {
+        commenting.setEditable(false);
     }
 }
