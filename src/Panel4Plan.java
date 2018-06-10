@@ -44,16 +44,16 @@ public class Panel4Plan extends JPanel {
 
     private void toolPanels(int w, int h) {
         int width = w / 2;
-        int hieght = h / 2;
+        int height = h / 2;
 
         panel = new JPanel(); // Настройки панели на которой размещены кнопка с меткой
-        panel.setBounds((width) - wPanel / 2, (hieght) - hPanel / 2, wPanel, hPanel);
+        panel.setBounds((width) - wPanel / 2, (height) - hPanel / 2, wPanel, hPanel);
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
         panel.setOpaque(false);
 
         // Настройки панели на которой будут указаны параметры
         panelInputInfo = new PanelInfo(panel, tasks);
-        panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (hieght) - hPanelInputInfo / 2,
+        panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (height) - hPanelInputInfo / 2,
                 wPanelInputInfo, hPanelInputInfo);
         panelInputInfo.setPreferredSize(new Dimension(wPanelInputInfo, hPanelInputInfo));
         panelInputInfo.setOpaque(false);
