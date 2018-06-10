@@ -48,15 +48,15 @@ public class Panel4Plan extends JPanel {
 
         panel = new JPanel(); // Настройки панели на которой размещены кнопка с меткой
         panel.setBounds((width) - wPanel / 2, (hieght) - hPanel / 2, wPanel, hPanel);
-        panel.setBackground(Color.ORANGE);
         panel.setPreferredSize(new Dimension(wPanel, hPanel));
+        panel.setOpaque(false);
 
         // Настройки панели на которой будут указаны параметры
         panelInputInfo = new PanelInfo(panel, tasks);
         panelInputInfo.setBounds((width) - wPanelInputInfo / 2, (hieght) - hPanelInputInfo / 2,
-                                                                        wPanelInputInfo, hPanelInputInfo);
-        panelInputInfo.setBackground(Color.GREEN);
+                wPanelInputInfo, hPanelInputInfo);
         panelInputInfo.setPreferredSize(new Dimension(wPanelInputInfo, hPanelInputInfo));
+        panelInputInfo.setOpaque(false);
     }
 
     private void adding() {
@@ -77,4 +77,14 @@ public class Panel4Plan extends JPanel {
     public static Font getGenericFont(int size) {
         return new Font("Times New Roman", Font.BOLD, size);
     }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        ImageIcon icon = new ImageIcon("assets\\bg_main.png");
+
+        g.drawImage(icon.getImage(), -5, -5, this);
+    }
 }
+

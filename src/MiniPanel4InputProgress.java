@@ -22,6 +22,8 @@ public class MiniPanel4InputProgress extends JPanel {
         startField.setToolTipText("Начало");
         endField = new JTextField(8);
         endField.setToolTipText("Конец");
+        startField.setFont(Panel4Plan.getGenericFont(18));
+        endField.setFont(Panel4Plan.getGenericFont(18));
     }
 
     public String getBegin() {

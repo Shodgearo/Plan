@@ -23,7 +23,7 @@ public class PanelInfo extends JPanel {
 
     PanelInfo(JPanel panel, Panel4OutTasks tasks) {
         this.panel = panel;
-        setLayout(new GridLayout(5, 1, 0, 25));
+        setLayout(new GridLayout(5, 1));
         toolsComponents();
         adding();
 
@@ -37,8 +37,11 @@ public class PanelInfo extends JPanel {
         initButton();
 
         panelInputProgress = new MiniPanel4InputProgress("Одна задача");
+        panelInputProgress.setOpaque(false);
         panelButtonComment = new JPanel();
+        panelButtonComment.setOpaque(false);
         panelOK = new JPanel();
+        panelOK.setOpaque(false);
     }
 
     private void initRadioButtons() {
@@ -48,22 +51,28 @@ public class PanelInfo extends JPanel {
         audio = new JRadioButton("Аудио");
         buttonGroup = new ButtonGroup();
 
+        single.setOpaque(false);
+        video.setOpaque(false);
+        book.setOpaque(false);
+        audio.setOpaque(false);
+
         buttonGroup.add(single);
         buttonGroup.add(video);
         buttonGroup.add(book);
         buttonGroup.add(audio);
 
         panelRadioButtons = new JPanel();
+        panelRadioButtons.setOpaque(false);
 
         single.addActionListener(new RadioButtonListener());
         video.addActionListener(new RadioButtonListener());
         book.addActionListener(new RadioButtonListener());
         audio.addActionListener(new RadioButtonListener());
 
-        single.setFont(Panel4Plan.getGenericFont(15));
-        video.setFont(Panel4Plan.getGenericFont(15));
-        book.setFont(Panel4Plan.getGenericFont(15));
-        audio.setFont(Panel4Plan.getGenericFont(15));
+        single.setFont(Panel4Plan.getGenericFont(18));
+        video.setFont(Panel4Plan.getGenericFont(18));
+        book.setFont(Panel4Plan.getGenericFont(18));
+        audio.setFont(Panel4Plan.getGenericFont(18));
     }
 
     private void initTextField() {
@@ -72,6 +81,7 @@ public class PanelInfo extends JPanel {
         nameField.setToolTipText("Введите название задачи");
 
         panelTextField = new JPanel();
+        panelTextField.setOpaque(false);
     }
 
     private void initButton() {
@@ -104,7 +114,6 @@ public class PanelInfo extends JPanel {
     }
 
     private class RadioButtonListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             typeTask = e.getActionCommand();
@@ -113,7 +122,6 @@ public class PanelInfo extends JPanel {
     }
     // Добавление комментария к задаче
     private class ButtonCommentListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if(frame == null) frame = new Frame4Comment();
@@ -152,6 +160,7 @@ public class PanelInfo extends JPanel {
     private void startCount(String msg) {
         remove(panelInputProgress);
         panelInputProgress = new MiniPanel4InputProgress(msg);
+        panelInputProgress.setOpaque(false);
         add(panelInputProgress);
         revalidate();
         addSecondStep();

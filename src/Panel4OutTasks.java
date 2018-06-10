@@ -37,4 +37,13 @@ public class Panel4OutTasks extends JPanel {
     private void adding(NewTask last) {
         add(last);
     }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        ImageIcon icon = new ImageIcon("assets\\bg_main.png");
+
+        g.drawImage(icon.getImage(), -490, -20, this);
+    }
 }
