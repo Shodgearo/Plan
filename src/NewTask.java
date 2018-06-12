@@ -84,7 +84,7 @@ public class NewTask extends JPanel {
         }
     }
 
-    // Настроки для табличного менеджера копановки. (1, 3, 3, 1, 1 - Компоненты строках)
+    // Настроки для табличного менеджера копановки.
     private void toolsTable() {
         // Настрока для имени задачи
         c.fill = GridBagConstraints.HORIZONTAL;
