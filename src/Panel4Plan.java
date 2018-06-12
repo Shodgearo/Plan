@@ -37,7 +37,8 @@ public class Panel4Plan extends JPanel {
     }
 
     private void initButton() {
-        buttonAdd = new JButton();
+        buttonAdd = new JButton(new ImageIcon("assets\\buttonOk.png"));
+        buttonAdd.setBorderPainted(false);
         buttonAdd.setPreferredSize(new Dimension(wButton, hButton));
         buttonAdd.addActionListener(new ButtonListener());
     }
