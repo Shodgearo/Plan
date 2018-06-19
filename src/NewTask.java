@@ -11,7 +11,7 @@ public class NewTask extends JPanel {
     private JTextField startField, finishField;
     private JLabel name, start, finish;
     private Frame4Comment frame4Comment;
-    private JButton commentButton;
+    private JButton commentButton, deleteButton;
     private GridBagConstraints c; // Для менеджера компановки
 
     public NewTask(String nameTask, String commentArea, String typeTask, String begin, String end, int countTasks) {
@@ -43,12 +43,12 @@ public class NewTask extends JPanel {
     }
 
     private void toolOutingTask() {
-        setPreferredSize(new Dimension(140, 100));
+        setPreferredSize(new Dimension(170, 130));
         initLabel();
         initTextFields();
-        initButton();
+        initButtons();
         toolsTable();
-        setOpaque(true); // Изменить по востребованию
+        setOpaque(false); // Изменить по востребованию
     }
 
     private void initLabel() {
@@ -64,11 +64,18 @@ public class NewTask extends JPanel {
         finishField.setHorizontalAlignment(SwingConstants.CENTER);
     }
 
-    private void initButton() {
+    private void initButtons() {
         commentButton = new JButton("Комментарий");
-        commentButton.setFont(Panel4Plan.getGenericFont(13));
+        commentButton.setFont(Panel4Plan.getGenericFont(15));
+        commentButton.setBorderPainted(false);
 
         commentButton.addActionListener(new ButtonListener());
+
+        deleteButton = new JButton("Удалить задачу");
+        deleteButton.setFont(Panel4Plan.getGenericFont(13));
+        deleteButton.setBorderPainted(false);
+
+        deleteButton.addActionListener(new DeleteButtonListener());
     }
 
     public String getName() {
@@ -97,7 +104,7 @@ public class NewTask extends JPanel {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 1;
-        c.insets = new Insets(5, 0, 0, 0);
+        c.insets = new Insets(5, 10, 0, 10);
         add(startField, c);
 
         // Настройка для поля "до"
@@ -105,7 +112,7 @@ public class NewTask extends JPanel {
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridx = 0;
             c.gridy = 2;
-            c.insets = new Insets(5, 0, 0, 0);
+            c.insets = new Insets(5, 10, 0, 10);
             add(finishField, c);
         }
 
@@ -115,5 +122,19 @@ public class NewTask extends JPanel {
         c.gridy = 3;
         c.insets = new Insets(5, 0, 0, 0);
         add(commentButton, c);
+
+        // Настройка кнопки для удаления элемента с панели
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 4;
+        c.insets = new Insets(5, 25, 0, 25);
+        add(deleteButton, c);
+    }
+
+    private class DeleteButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
     }
 }
