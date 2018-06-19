@@ -25,11 +25,7 @@ public class NewTask extends JPanel {
 
         id = countTasks;
 
-        setPreferredSize(new Dimension(140, 100));
-        initLabel();
-        initTextFields();
-        initButton();
-        toolsTable();
+        toolOutingTask();
     }
 
     public NewTask(String nameTask, String commentArea, String typeTask, String begin, int countTasks) {
@@ -43,13 +39,17 @@ public class NewTask extends JPanel {
 
         id = countTasks;
 
+        toolOutingTask();
+    }
+
+    private void toolOutingTask() {
         setPreferredSize(new Dimension(140, 100));
         initLabel();
         initTextFields();
         initButton();
         toolsTable();
+        setOpaque(true); // Изменить по востребованию
     }
-
 
     private void initLabel() {
         name = new JLabel(nameTask);
@@ -90,12 +90,14 @@ public class NewTask extends JPanel {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
+        c.insets = new Insets(5, 0, 0, 0); // Отступы
         add(name, c);
 
         // Настройка для поля "от"
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 1;
+        c.insets = new Insets(5, 0, 0, 0);
         add(startField, c);
 
         // Настройка для поля "до"
@@ -103,6 +105,7 @@ public class NewTask extends JPanel {
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridx = 0;
             c.gridy = 2;
+            c.insets = new Insets(5, 0, 0, 0);
             add(finishField, c);
         }
 
@@ -110,6 +113,7 @@ public class NewTask extends JPanel {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 3;
+        c.insets = new Insets(5, 0, 0, 0);
         add(commentButton, c);
     }
 }
