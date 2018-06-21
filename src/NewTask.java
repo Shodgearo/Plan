@@ -134,7 +134,8 @@ public class NewTask extends JPanel {
     private class DeleteButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            setVisible(false);
+            id = -1;
         }
     }
 }
