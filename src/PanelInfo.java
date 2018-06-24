@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class PanelInfo extends JPanel {
     private Panel4OutTasks outTasks;
@@ -147,6 +150,20 @@ public class PanelInfo extends JPanel {
             nameTask = "";
             nameField.setText("");
 
+            try {
+                createFile4SaveTasks();
+            } catch (IOException exc) {
+                exc.printStackTrace();
+            }
+        }
+
+        private void createFile4SaveTasks() throws IOException {
+            FileOutputStream fos = new FileOutputStream("temp.out");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            SerialClass serial = new SerialClass();
+            oos.writeObject(serial);
+            oos.flush();
+            oos.close();
         }
     }
 
