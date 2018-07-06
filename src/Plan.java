@@ -10,7 +10,7 @@ public class Plan extends JFrame {
     }
 
     // Размеры окна
-    private final static int WIDTH_FRAME = 600;
+    private final static int WIDTH_FRAME = 650;
     private final static int HEIGHT_FRAME = 450;
     // Ширина панелей
     private final static int WIDTH_FRAME_ADDTASKS = WIDTH_FRAME - 180;
