@@ -72,15 +72,15 @@ public class PanelInfo extends JPanel {
         book.addActionListener(new RadioButtonListener());
         audio.addActionListener(new RadioButtonListener());
 
-        single.setFont(Panel4Plan.getGenericFont(18));
-        video.setFont(Panel4Plan.getGenericFont(18));
-        book.setFont(Panel4Plan.getGenericFont(18));
-        audio.setFont(Panel4Plan.getGenericFont(18));
+        single.setFont(Panel4Plan.getGenericFont(17));
+        video.setFont(Panel4Plan.getGenericFont(17));
+        book.setFont(Panel4Plan.getGenericFont(17));
+        audio.setFont(Panel4Plan.getGenericFont(17));
     }
 
     private void initTextField() {
         nameField = new JTextField(20);
-        nameField.setFont(Panel4Plan.getGenericFont(20));
+        nameField.setFont(Panel4Plan.getGenericFont(17));
         nameField.setToolTipText("Введите название задачи");
 
         panelTextField = new JPanel();
@@ -89,13 +89,13 @@ public class PanelInfo extends JPanel {
 
     private void initButton() {
         ok = new JButton("OK");
-        ok.setFont(Panel4Plan.getGenericFont(20));
+        ok.setFont(Panel4Plan.getGenericFont(17));
         ok.setPreferredSize(new Dimension(65, 32));
 
         ok.addActionListener(new ButtonOKListener());
 
         comment = new JButton("Комментарий");
-        comment.setFont(Panel4Plan.getGenericFont(20));
+        comment.setFont(Panel4Plan.getGenericFont(17));
         comment.addActionListener(new ButtonCommentListener());
     }
 

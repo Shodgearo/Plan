@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class Panel4Plan extends JPanel {
     private JPanel panel;
@@ -13,7 +14,7 @@ public class Panel4Plan extends JPanel {
     private final int hButton = 90;
     private final int wPanel = 140;
     private final int hPanel = 140;
-    private final int wPanelInputInfo = 380;
+    private final int wPanelInputInfo = 480;
     private final int hPanelInputInfo = 300;
     private JButton buttonAdd;
     private JLabel adding;
@@ -37,7 +38,7 @@ public class Panel4Plan extends JPanel {
     }
 
     private void initButton() {
-        buttonAdd = new JButton(new ImageIcon("assets\\buttonOk.png"));
+        buttonAdd = new JButton(new ImageIcon("assets/buttonOk.png"));
         buttonAdd.setBorderPainted(false);
         buttonAdd.setPreferredSize(new Dimension(wButton, hButton));
         buttonAdd.addActionListener(new ButtonListener());
@@ -83,9 +84,9 @@ public class Panel4Plan extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        ImageIcon icon = new ImageIcon("assets\\bg_main.png");
+        ImageIcon icon = new ImageIcon("assets/bg_main.png");
 
-        g.drawImage(icon.getImage(), -5, -5, this);
+        g.drawImage(icon.getImage(), -5, 0, this);
     }
 }
 
