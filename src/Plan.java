@@ -3,6 +3,10 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class Plan extends JFrame {
     public static void main(String[] args) {
@@ -24,6 +28,18 @@ public class Plan extends JFrame {
         initPanel();
         adding();
         initFrame();
+        try {
+            readingSerial();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readingSerial() throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("temp.out");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        SerialClass serial = (SerialClass)ois.readObject();
+        System.out.println(serial.getI());
     }
 
     private void adding() {
